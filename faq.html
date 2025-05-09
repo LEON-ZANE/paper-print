@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paperprint - FAQ/About Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --light-gray: #f4f4f4;
+            --medium-gray: #ddd;
+            --dark-gray: #555;
+            --font-main: 'Poppins', Arial, sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        header {
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--medium-gray);
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-icon {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-right: 15px;
+            transition: color var(--transition-speed);
+        }
+
+        .contact-icon:hover {
+            color: var(--primary-color);
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+            margin-right: 15px;
+            transition: transform var(--transition-speed);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin-left: auto;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+            transition: color var(--transition-speed);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: width var(--transition-speed);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+
+        main {
+            flex: 1;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 15px auto 0;
+        }
+
+
+        .faq {
+            margin-bottom: 60px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all var(--transition-speed);
+        }
+
+        .faq-question {
+            padding: 20px;
+            background-color: var(--light-gray);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background-color: #e8e8e8;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform var(--transition-speed);
+        }
+
+        .faq-question.active::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-speed), padding var(--transition-speed);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 300px;
+        }
+
+
+        .about-us {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .about-us p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+
+        .site-footer {
+            background-color: var(--secondary-color);
+            border-top: 1px solid var(--medium-gray);
+            padding: 40px 20px 20px;
+            font-size: 0.95rem;
+            color: white;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-left,
+        .footer-center,
+        .footer-right {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-logo {
+            height: 60px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-center .footer-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: white;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-right a {
+            margin-left: 15px;
+            color: white;
+            font-size: 1.3rem;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-right a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom a {
+            margin: 0 10px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-bottom a:hover {
+            color: white;
+        }
+
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+                margin: 15px 0 0;
+            }
+
+            .faq-question {
+                padding: 15px;
+            }
+
+            .about-us {
+                padding: 20px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .footer-center .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-right {
+                text-align: center;
+            }
+
+            .footer-right a {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <a href="contact.html" class="contact-icon" aria-label="Contact Us">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <img src="src/PaperPrint-removebg-preview.png" alt="Paperprint Logo" class="logo" />
+            <h1>FAQ / About Us</h1>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="packages.html">Personalized Packages</a></li>
+                    <li><a href="faq.html" aria-current="page">FAQ/About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">What services do you offer?</div>
+                <div class="faq-answer">
+                    <p>We specialize in custom printed products including logo designs, marketing materials, sustainable
+                        packaging options, and worldwide shipping solutions for businesses and individuals.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How can I customize my products?</div>
+                <div class="faq-answer">
+                    <p>You can work directly with our design team to create custom products. Simply contact us with your
+                        ideas, and we'll guide you through our customization process from concept to final product.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you offer bulk orders?</div>
+                <div class="faq-answer">
+                    <p>Yes! We specialize in bulk orders for corporate events, marketing campaigns, and promotional
+                        needs. Bulk orders receive discounted pricing - contact us for a personalized quote.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What is your shipping policy?</div>
+                <div class="faq-answer">
+                    <p>We offer worldwide shipping with multiple delivery options. Standard shipping takes 5-7 business
+                        days locally and 10-15 days internationally. Express options are available.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">How can I contact you?</div>
+                <div class="faq-answer">
+                    <p>Reach us via email at info@paperprint.com, through our contact form, or call +1 (555) 123-4567
+                        during business hours (9AM-5PM EST, Mon-Fri).</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-us">
+            <h2>About Paperprint</h2>
+            <p>Founded in 2015, Paperprint is a leader in custom printed products and sustainable packaging solutions.
+                Our mission is to help businesses and individuals bring their creative visions to life through
+                high-quality, customizable products.</p>
+            <p>We combine innovative printing technology with eco-friendly materials to deliver products that make an
+                impact while minimizing environmental footprint. Our team of designers and printing experts work closely
+                with clients to ensure every project meets the highest standards.</p>
+            <p>Whether you need promotional materials for your business or custom gifts for special occasions,
+                Paperprint is your trusted partner for all your printing needs.</p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="src/PaperPrint-removebg-preview.png" alt="Paperprint Logo" class="footer-logo" />
+            </div>
+
+            <div class="footer-center">
+                <ul class="footer-links" aria-label="Social media links">
+                    <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
+                    <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-tiktok" aria-hidden="true"></i> TikTok</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-right">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Paperprint. All rights reserved.</p>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Sitemap</a>
+        </div>
+    </footer>
+
+    <script>
+
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+
+
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

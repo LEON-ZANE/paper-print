@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Paperprint - Your premier source for custom printed products including logo designs, marketing materials, and sustainable printing solutions.">
+    <meta name="keywords"
+        content="custom printing, logo design, marketing materials, sustainable printing, personalized products">
+    <meta name="author" content="Paperprint">
+    <meta property="og:title" content="Paperprint - Custom Printed Products">
+    <meta property="og:description"
+        content="Your one-stop shop for high-quality custom printed products and design services.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.paperprint.com">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="src/favicon.ico" type="image/x-icon">
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --light-gray: #f4f4f4;
+            --medium-gray: #ddd;
+            --dark-gray: #555;
+            --font-main: 'Poppins', Arial, sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--medium-gray);
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+            transition: transform var(--transition-speed);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-icon {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            transition: color var(--transition-speed);
+        }
+
+        .contact-icon:hover {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+            transition: color var(--transition-speed);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: width var(--transition-speed);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin: 50px 0;
+            padding: 30px 20px;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('src/hero-bg.jpg') center/cover no-repeat;
+            border-radius: 8px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+
+        .search {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-bar {
+            padding: 10px 15px;
+            width: 300px;
+            max-width: 100%;
+            border: 1px solid var(--medium-gray);
+            border-radius: 4px 0 0 4px;
+            font-family: var(--font-main);
+            outline: none;
+            transition: border-color var(--transition-speed);
+        }
+
+        .search-bar:focus {
+            border-color: var(--primary-color);
+        }
+
+        .search-button {
+            padding: 10px 15px;
+            cursor: pointer;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            transition: background-color var(--transition-speed);
+        }
+
+        .search-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .services {
+            max-width: 1200px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .services h3 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+        }
+
+        .services ul {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0;
+            list-style: none;
+            margin: 40px 0;
+            gap: 20px;
+        }
+
+        .services li {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 200px;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .services li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        section form {
+            max-width: 500px;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 30px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section form h2 {
+            text-align: center;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        section form label {
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        section form input,
+        section form textarea {
+            padding: 10px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 4px;
+            font-family: var(--font-main);
+            transition: border-color var(--transition-speed);
+        }
+
+        section form input:focus,
+        section form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        section form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        section form button {
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color var(--transition-speed);
+        }
+
+        section form button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .site-footer {
+            background-color: var(--secondary-color);
+            border-top: 1px solid var(--medium-gray);
+            padding: 40px 20px 20px;
+            font-size: 0.95rem;
+            color: white;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-left,
+        .footer-center,
+        .footer-right {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-logo {
+            height: 60px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-center .footer-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: white;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        .footer-right a {
+            margin-left: 15px;
+            color: white;
+            font-size: 1.3rem;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-right a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.7);
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom a {
+            margin: 0 10px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color var(--transition-speed);
+        }
+
+        .footer-bottom a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                align-items: center;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .footer-center .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-right {
+                text-align: center;
+            }
+
+            .footer-right a {
+                margin: 0 10px;
+            }
+        }
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero,
+        .services,
+        section form {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+
+        a:focus,
+        button:focus,
+        input:focus,
+        textarea:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--secondary-color);
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <div class="header-container">
+            <a href="contact.html" class="contact-icon" aria-label="Contact Us">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <img src="src/PaperPrint-removebg-preview.png" alt="Paperprint Logo" class="logo" height="50" />
+            <h1>Welcome to Paperprint</h1>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="packages.html">Personalized Packages</a></li>
+                    <li><a href="faq.html">FAQ/About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="hero">
+            <h2>Your One-Stop Shop for Custom Printed Products</h2>
+            <p>Explore our services and personalized products!</p>
+            <div class="search">
+                <input type="search" class="search-bar" placeholder="Search products..." aria-label="Search products" />
+                <button class="search-button" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </section>
+
+        <section class="services">
+            <h3>Our Services</h3>
+            <ul>
+                <li><i class="fas fa-paint-brush" aria-hidden="true"></i> Logo Designs</li>
+                <li><i class="fas fa-bullhorn" aria-hidden="true"></i> Marketing</li>
+                <li><i class="fas fa-recycle" aria-hidden="true"></i> Sustainable and Recycling</li>
+                <li><i class="fas fa-shipping-fast" aria-hidden="true"></i> Worldwide Shipping</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Contact Us</h2>
+            <form onsubmit="return validateContactForm()" aria-label="Contact form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required aria-required="true" />
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required aria-required="true" />
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="src/PaperPrint-removebg-preview.png" alt="Paperprint Logo" class="footer-logo" />
+            </div>
+
+            <div class="footer-center">
+                <ul class="footer-links" aria-label="Social media links">
+                    <li><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
+                    <li><a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-tiktok" aria-hidden="true"></i> TikTok</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-right">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Paperprint. All rights reserved.</p>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Sitemap</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+
+        function validateContactForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !message) {
+                alert('Please fill in all fields');
+                return false;
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Please enter a valid email address');
+                return false;
+            }
+
+
+            alert('Thank you for your message! We will get back to you soon.');
+            return true;
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
+
+            if ('IntersectionObserver' in window) {
+                let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove('lazy');
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function (lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
